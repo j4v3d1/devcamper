@@ -3,5 +3,8 @@
     "bootcamp",
     "bootcamps",
     "devcamper"
+  ],
+  "marquee.widgets.npm-stats.packageNames": [
+    "devcamper-api"
   ]
 }
