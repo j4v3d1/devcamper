@@ -22,7 +22,8 @@
   "homepage": "https://github.com/j4v3d1/devcamper#readme",
   "dependencies": {
     "dotenv": "^16.0.3",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "morgan": "^1.10.0"
   },
   "devDependencies": {
     "colors": "^1.4.0",
