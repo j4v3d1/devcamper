@@ -8,7 +8,7 @@ const dotenv = require('dotenv');
 dotenv.config({ path: './config/config.env' });
 
 //Load models
-const Bootcamp = require('./models/Bootcamps');
+const Bootcamp = require('./models/Bootcamp');
 const Course = require('./models/Course');
 
 //Connect to database
@@ -29,7 +29,7 @@ const courses = JSON.parse(
 const importData = async () => {
   try {
     await Bootcamp.create(bootcamps);
-    await Course.create(courses);
+    // await Course.create(courses);
     console.log('Data Imported...'.green.inverse);
     process.exit();
   } catch (error) {
