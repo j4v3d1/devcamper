@@ -1,7 +1,7 @@
 const nodemailer = require('nodemailer');
 
 const sendEmail = async (options) => {
-  const transporter = await nodemailer.createTransport({
+  const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
     port: process.env.SMTP_PORT,
     auth: {
@@ -10,27 +10,16 @@ const sendEmail = async (options) => {
     },
   });
 
-  // send mail with defined transport object
-  const message = await transporter.sendMail({
+  const message = {
     from: `${process.env.FROM_NAME} <${process.env.FROM_EMAIL}>`,
     to: options.email,
     subject: options.subject,
     text: options.message,
-  });
+  };
+
   const info = await transporter.sendMail(message);
 
   console.log('Message sent: %s', info.messageId);
 };
 
 module.exports = sendEmail;
-
-// main().catch(console.error);
-
-// var transport = nodemailer.createTransport({
-//   host: "sandbox.smtp.mailtrap.io",
-//   port: 2525,
-//   auth: {
-//     user: "68a796e14617bd",
-//     pass: "eb68723a998c23"
-//   }
-// });
