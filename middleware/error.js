@@ -3,12 +3,14 @@ const ErrorResponse = require('../utils/errorResponse');
 const errorHandler = (err, req, res, next) => {
   let error = { ...err };
 
+  error.message = err.message;
+
   // * Log to console for dev
-  console.error(err.stack.red);
+  console.log(err);
 
   //* Mongoose Bad ObjectID error
-  if (err.name === 'CastError' && err.kind === 'ObjectId') {
-    const message = `Bootcamp not found with id ${err.value}`;
+  if (err.name === 'CastError') {
+    const message = `Resource not found with id ${err.value}`;
     error = new ErrorResponse(message, 404);
   }
   //* Mongoose duplicate key error

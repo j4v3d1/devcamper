@@ -66,7 +66,7 @@ exports.updateBootcamp = asyncHandler(async (req, res, next) => {
 
   if (!bootcamp) {
     return next(
-      new ErrorResponse(`Bootcamp not found with id ${req.params.id}`, 404)
+      new ErrorResponse(`Bootcamp not found with id of ${req.params.id}`, 404)
     );
   }
 
@@ -146,8 +146,7 @@ exports.bootcampPhotoUpload = asyncHandler(async (req, res, next) => {
   const bootcamp = await Bootcamp.findById(req.params.id);
   if (!bootcamp) {
     return next(
-      new ErrorResponse(`Bootcamp not found with id ${req.params.id}`),
-      404
+      new ErrorResponse(`Bootcamp not found with id ${req.params.id}`, 404)
     );
   }
   // make sure user is bootcamp owner
